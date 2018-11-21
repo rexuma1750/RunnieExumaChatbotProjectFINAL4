@@ -1,6 +1,9 @@
 package com.company;
 
 public class Chatbot {
+
+    int emotion = 0;
+
     public void chatLoop(String statement){
         Scanner in = new Scanner (System.in);
         System.out.println(getGreeting());
@@ -21,11 +24,11 @@ public class Chatbot {
             response = " Please type in your question.";
             emotion++;
         }
-        else if (findKeyword(statement, "New York") >= 0
-                || findKeyword(statement,"Brooklyn") >= 0
-                || findKeyword(statement,"Manhattan") >= 0
-                || findKeyword(statement,"Bronx") >= 0
-                || findKeyword(statement,"Staten Island") >= 0
+        else if ((findKeyword(statement, "New York") >= 0)
+                || (findKeyword(statement, "Brooklyn") >= 0)
+                || (findKeyword(statement, "Manhattan") >= 0)
+                || (findKeyword(statement, "Bronx") >= 0)
+                || (findKeyword(statement, "Staten Island") >= 0))
         {
             response = " The two candidates for U.S. Senate in New York are Kirsten Gillibrand(D), and Chele Farley(R). ";
             emotion++;
@@ -34,7 +37,7 @@ public class Chatbot {
         else if (findKeyword(statement,"Democrats") >= 0
                 || findKeyword(statement,"Republicans") >= 0
                 || findKeyword(statement,"Independent") >=0
-                || findKeyword(statement, "House") >= 0
+                || findKeyword(statement, "House") >= 0)
         {
             response = "Democrats regained control in the House of Representatives. There are currently 232 Democrats in the House, along with 197 Republicans.";
             emotion++;
@@ -43,9 +46,10 @@ public class Chatbot {
             || findKeyword(statement,"Registration") >= 0
             || findKeyword(statement,"polls") >= 0
             || findKeyword(statement,"booth") >= 0
-            || findKeyword(statement,"voting") >= 0
+            || findKeyword(statement,"voting") >= 0)
         {
             response = "The last day to vote in New York is November 6th,2018. Please visit the nyc.pollsite.locator.com website to gain information on where to vote.";
+            emotion++;
         }
     }
 
@@ -54,14 +58,14 @@ public class Chatbot {
         statement = statement.trim();
         String lastChar = statement.substring(statement.length() - 1);
         if (lastChar.equals(".")){
-            statement == statement.substr8ing.(0, statement.length() - 1);
+            statement == statement.substring.(0, statement.length() - 1);
         }
-        int psn = findKeyword (statement,"I want to", 0);
+        int psn = findKeyword (statement,"I want to");
         String restOfStatement = statement.substring(psn +9).trim();
         return "Why do you want to" + restOfStatement + "?";
     }
 
-    private int findKeyword(String statement,. String goal, int startPos){
+    private int findKeyword(String statement,.String goal){
         String phrase = statement.trim().toLowerCase();
         goal = goal.toLowerCase();
         int psn = phrase.indexOf(goal, startPos);
@@ -84,14 +88,14 @@ public class Chatbot {
         }
         return -1;
 
-        private String getRandomResponse() {
+        private String getRandomResponse(;){
             Random r = new Random();
             if (emotion < 0) {
                 return randomNeutralResponse[r.nextInt(randomNeutralResponses.length)];
 
             }
         }
-            private String[] randomNeutralResponses -{" Hmm, I'm not sure what you're asking.",
+            private String[] randomNeutralResponses; -{" Hmm, I'm not sure what you're asking.",
                     " Google this question. I'm not sure I can help!",
                     "Could you say that again?";
             }
